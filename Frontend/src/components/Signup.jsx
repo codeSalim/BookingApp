@@ -1,12 +1,12 @@
-import React, { useState } from 'react';
-import axios from 'axios';
-import './SignUp.css';
+import React, { useState } from "react";
+import axios from "axios";
+import "./SignUp.css";
 
 const Signup = () => {
   const [formData, setFormData] = useState({
-    name: '',
-    email: '',
-    password: '',
+    name: "",
+    email: "",
+    password: "",
   });
   const [error, setError] = useState(null);
   const [success, setSuccess] = useState(null);
@@ -24,18 +24,18 @@ const Signup = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      const response = await axios.post('/api/signup', formData);
-      setSuccess('User registered successfully');
+      const response = await axios.post("/api/signup", formData);
+      setSuccess("User registered successfully");
       setError(null);
     } catch (error) {
-      setError(error.response?.data?.message || 'An error occurred');
+      setError(error.response?.data?.message || "An error occurred");
       setSuccess(null);
     }
   };
 
   return (
     <>
-      <div id='Signup-bg'>
+      <div id="Signup-bg">
         {/* <img src="public/barber_shop5.jpg" alt="bg" id='bg-img'/> */}
       </div>
       <div className="signup-form-container">
@@ -74,11 +74,13 @@ const Signup = () => {
               required
             />
           </div>
-          <button type="submit" className="signup-button">Sign Up</button>
+          <button type="submit" className="signup-button">
+            Sign Up
+          </button>
           {/* <Link className='Link-btn' to='/login'>Already have an account? Login</Link> */}
         </form>
-        {error && <p style={{ color: 'red' }}>{error}</p>}
-        {success && <p style={{ color: 'green' }}>{success}</p>}
+        {error && <p style={{ color: "red" }}>{error}</p>}
+        {success && <p style={{ color: "green" }}>{success}</p>}
       </div>
     </>
   );
